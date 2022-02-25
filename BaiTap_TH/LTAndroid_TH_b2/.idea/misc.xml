@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b2/app/src/main/res/drawable/background_c.xml" value="0.2703125" />
         <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b2/app/src/main/res/drawable/vien.xml" value="0.2703125" />
         <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b2/app/src/main/res/drawable/vien_b_2.xml" value="0.2703125" />
         <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b2/app/src/main/res/layout/activity_main.xml" value="0.1721014492753623" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b2/app/src/main/res/layout/activity_th2_c.xml" value="0.25416666666666665" />
         <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b2/app/src/main/res/layout/activity_th2b.xml" value="0.264" />
       </map>
     </option>
