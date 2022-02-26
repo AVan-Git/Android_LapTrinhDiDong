@@ -51,6 +51,8 @@
         android:id="@+id/txtView"
         android:layout_width="115dp"
         android:layout_height="50dp"
+        android:textColor="#000"
+        android:gravity="center"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintStart_toEndOf="@+id/textView10" />
