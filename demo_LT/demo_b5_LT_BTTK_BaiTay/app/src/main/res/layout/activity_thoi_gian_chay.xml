@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity_ThoiGianChay">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Chọn kiểu thời gian:"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RadioButton
+            android:id="@+id/rdSS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:checked="true"
+            android:paddingLeft="5dp"
+            android:text="giây (s) - giây (s)" />
+
+        <RadioButton
+            android:id="@+id/rdMS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:paddingLeft="5sp"
+            android:text="phút (m) - giây (s)" />
+
+        <RadioButton
+            android:id="@+id/rdMM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:paddingLeft="5sp"
+            android:text="phút (m) - phút (m)" />
+    </RadioGroup>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+    <TextView
+        android:id="@+id/txtTB3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Nhập số thời gian chạy(s):"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edTGChay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/txtTB4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Nhập số thời gian cho 1 bước nhảy(s):"
+        android:textSize="20sp"
+        />
+
+    <EditText
+        android:id="@+id/edTGNhay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:inputType="number" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/btnOK"
+            android:text="OK"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+</LinearLayout>

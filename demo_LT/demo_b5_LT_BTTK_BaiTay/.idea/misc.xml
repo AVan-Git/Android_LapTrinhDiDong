@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Studio/demo_b5_LT_BTTK_BaiTay/app/src/main/res/layout/activity_bt1.xml" value="0.264" />
+        <entry key="..\:/Android Studio/demo_b5_LT_BTTK_BaiTay/app/src/main/res/layout/activity_bt2.xml" value="0.264" />
+        <entry key="..\:/Android Studio/demo_b5_LT_BTTK_BaiTay/app/src/main/res/layout/activity_ket_qua.xml" value="0.13020833333333334" />
+        <entry key="..\:/Android Studio/demo_b5_LT_BTTK_BaiTay/app/src/main/res/layout/activity_main.xml" value="0.1721014492753623" />
+        <entry key="..\:/Android Studio/demo_b5_LT_BTTK_BaiTay/app/src/main/res/layout/activity_thoi_gian_chay.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
