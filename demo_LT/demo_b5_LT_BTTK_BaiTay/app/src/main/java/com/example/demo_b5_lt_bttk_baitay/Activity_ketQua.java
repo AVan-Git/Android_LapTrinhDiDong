@@ -15,6 +15,13 @@ public class Activity_ketQua extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ket_qua);
         TextView txtKQ = findViewById(R.id.txtKQ1);
+        TextView KQ1 = findViewById(R.id.KQ1);
+        TextView KQ2 = findViewById(R.id.KQ2);
+        TextView KQ3 = findViewById(R.id.KQ3);
+
+        TextView TL1 = findViewById(R.id.TL1);
+        TextView TL2 = findViewById(R.id.TL2);
+        TextView TL3 = findViewById(R.id.TL3);
 
 
         Intent intent = getIntent();
@@ -25,33 +32,32 @@ public class Activity_ketQua extends AppCompatActivity {
 
         int a = 0;
         String str="";
-//        int i =1;
-//        for (Integer q : dsKQ ) {
-//            a = (int)q;
-//            str = "Ván "+i+": ";
-//            if (a == 0){
-//                str += "Hòa";
-//            }else if (a >0){
-//                str += "player 1 wins!";
-//            }
-//            else {
-//                str += "player 2 wins!";
-//            }
-//            txtKQ.setText(str+"\n");
-//        }
+        int t1 = 0; // 1 thang
+        int t2 = 0; // 2 thang
+        int t = 0; // hoa
 
         for (int i = 1; i <= dsKQ.size(); i++) {
             str += "\nVán "+i+": ";
             if (dsKQ.get(i-1).intValue() == 0){
+                t++;
                 str += "Hòa";
             }else if (dsKQ.get(i-1).intValue()<0){
                 str += "player 1 wins!";
+                t1++;
             }
             else {
+                t2++;
                 str += "player 2 wins!";
             }
 
         }
+        int sl = dsKQ.size();
         txtKQ.setText(str);
+        KQ1.setText("" + t1);
+        KQ2.setText("" + t2);
+        KQ3.setText("" + t);
+        TL1.setText("" + ((t1*100)/sl) + " %");
+        TL2.setText("" + ((t2*100)/sl) + " %");
+        TL3.setText("" + ((t*100)/sl) + " %");
     }
 }

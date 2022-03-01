@@ -5,13 +5,189 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".Activity_ketQua">
+
+
     <TextView
+        android:id="@+id/txtTieuDe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:gravity="center"
-        android:id="@+id/txtKQ1"/>
+        android:padding="10dp"
+        android:background="@color/teal_200"
+        android:text="HISTORY"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="11"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text=""
+            android:layout_weight="2"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="người 1 thắng"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="người 2 thắng"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Hòa"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="11"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="KQ"
+            android:layout_weight="2"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/KQ1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="người 1 thắng"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/KQ2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="người 2 thắng"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/KQ3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Hòa"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="11"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Tỉ lệ"
+            android:layout_weight="2"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/TL1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="người 1 thắng"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/TL2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="người 2 thắng"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/TL3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="Hòa"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txtKQ1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000"
+        android:gravity="center"
+        android:textSize="20sp" />
 
 
 </LinearLayout>

@@ -55,7 +55,6 @@ public class Activity_BT2 extends AppCompatActivity {
         TextView txtChay = findViewById(R.id.txtChay);
         TextView txtNhay = findViewById(R.id.txtNhay);
 
-        Button btnClick = findViewById(R.id.btnClick);
         btnRun = findViewById(R.id.btnRun);
         Button btnHistory = (Button) findViewById(R.id.btnHistory);
         Button btnRefresh = (Button) findViewById(R.id.btnRefresh);
@@ -79,114 +78,64 @@ public class Activity_BT2 extends AppCompatActivity {
         int TGNhay = getIntent().getExtras().getInt("TGNhay");
 
 
-        if (TGChay > 60){
+        if (TGChay > 60) {
             txtChay.setText(doiS_M(TGChay));
-        }else{
-            txtChay.setText(""+ TGChay + " (s)");
+        } else {
+            txtChay.setText("" + TGChay + " (s)");
         }
-        if (TGNhay > 60){
+        if (TGNhay > 60) {
             txtNhay.setText(doiS_M(TGNhay));
-        }else{
-            txtNhay.setText(""+ TGNhay + " (s)");
+        } else {
+            txtNhay.setText("" + TGNhay + " (s)");
         }
 //
         btnRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                CountDownTimer timer = new CountDownTimer(TGChay * 1000,TGNhay * 1000) {
+                CountDownTimer timer = new CountDownTimer(TGChay * 1000, TGNhay * 1000) {
                     @Override
                     public void onTick(long l) {
-                        Long t = l/1000; // thoi gian con lai
+                        Long t = l / 1000; // thoi gian con lai
                         Long a, b;
-                        int c,d;
-                        if (t > 60)
-                        {
-                            a = t/60;
-                            b = t%60;
-                            txtChay.setText(""+a+" : "+ b + " (m)");
+
+                        int c, d;
+                        if (t > 60) {
+                            a = t / 60;
+                            b = t % 60;
+                            txtChay.setText("" + a + " : " + b + " (m)");
+                        } else {
+                            txtChay.setText("" + t + " (s)");
                         }
-                        else{
-                            txtChay.setText(""+ t + " (s)");
-                        }
-                        if (TGNhay > 60)
-                        {
+
+
+                        if (TGNhay > 60) {
                             txtNhay.setText(doiS_M(TGNhay));
-                        }
-                        else{
-                            txtNhay.setText(""+ TGNhay + " (s)");
+                        } else {
+                            txtNhay.setText("" + TGNhay + " (s)");
                         }
                         dsKQ.addKQ(ketQua());
-                        txtTieuDe.setText("Ván "+ dsKQ.getSize());
+                        txtTieuDe.setText("Ván " + dsKQ.getSize());
                     }
 
                     @Override
                     public void onFinish() {
                         txtKQ.setText("Hoàn thành.");
 
-                        if (TGChay > 60){
+                        if (TGChay > 60) {
                             txtChay.setText(doiS_M(TGChay));
-                        }else{
-                            txtChay.setText(""+ TGChay + " (s)");
+                        } else {
+                            txtChay.setText("" + TGChay + " (s)");
                         }
-                        if (TGNhay > 60){
+                        if (TGNhay > 60) {
                             txtNhay.setText(doiS_M(TGNhay));
-                        }else{
-                            txtNhay.setText(""+ TGNhay + " (s)");
+                        } else {
+                            txtNhay.setText("" + TGNhay + " (s)");
                         }
                     }
                 }.start();
 
             }
-            // hàm chọn bài
-            public int ketQua() {
-                int[] chonBai = laySauSoNgauNhien(0, 51);
-
-                int[] arr1 = {chonBai[0], chonBai[2], chonBai[4]};
-                int[] arr2 = {chonBai[1], chonBai[3], chonBai[5]};
-
-                img1.setImageResource(manghinhbai[arr1[0]]);
-                img2.setImageResource(manghinhbai[arr1[1]]);
-                img3.setImageResource(manghinhbai[arr1[2]]);
-
-                img4.setImageResource(manghinhbai[arr2[0]]);
-                img5.setImageResource(manghinhbai[arr2[1]]);
-                img6.setImageResource(manghinhbai[arr2[2]]);
-
-                String[] kq_play1 = tinhKQ(arr1);
-                String[] kq_play2 = tinhKQ(arr2);
-
-                txtTB1.setText(kq_play1[1]);
-                txtTB2.setText(kq_play2[1]);
-
-                String kq = "";
-                int x = 0;
-                int a = Integer.parseInt(kq_play1[0]);// a lưu thông tin của người chơi 1
-                int b = Integer.parseInt(kq_play2[0]);// b lưu thông tin của người chơi 2
-
-                if (a == b) {
-                    kq = "Hòa";
-                } else if (a > b) {
-                    x = -1;
-                    kq = "player 1 wins!";
-                } else {
-                    x = 1;
-                    kq = "player 2 wins!";
-                }
-
-                txtKQ.setText(kq );
-
-                return x;
-            }
-        });
-
-        btnClick.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                dsKQ.addKQ(ketQua());
-                txtTieuDe.setText("Ván "+ dsKQ.getSize());
-            }
 
             // hàm chọn bài
             public int ketQua() {
@@ -224,24 +173,22 @@ public class Activity_BT2 extends AppCompatActivity {
                     kq = "player 2 wins!";
                 }
 
-                txtKQ.setText(kq );
+                txtKQ.setText(kq);
 
                 return x;
             }
-
         });
 
         btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if (dsKQ.getSize() > 0){
+                if (dsKQ.getSize() > 0) {
                     Intent i = new Intent(Activity_BT2.this, Activity_ketQua.class);
                     i.putIntegerArrayListExtra("dsKQ", (ArrayList<Integer>) dsKQ.getKQ());
                     startActivity(i);
-                }
-                else{
-                    Toast.makeText(Activity_BT2.this,"Trò chơi chưa được bắt đầu!",  Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Activity_BT2.this, "Trò chơi chưa được bắt đầu!", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -263,15 +210,15 @@ public class Activity_BT2 extends AppCompatActivity {
                 img6.setImageResource(b1fv);
 
 
-                if (TGChay > 60){
+                if (TGChay > 60) {
                     txtChay.setText(doiS_M(TGChay));
-                }else{
-                    txtChay.setText(""+ TGChay + " (s)");
+                } else {
+                    txtChay.setText("" + TGChay + " (s)");
                 }
-                if (TGNhay > 60){
+                if (TGNhay > 60) {
                     txtNhay.setText(doiS_M(TGNhay));
-                }else{
-                    txtNhay.setText(""+ TGNhay + " (s)");
+                } else {
+                    txtNhay.setText("" + TGNhay + " (s)");
                 }
             }
         });
@@ -279,11 +226,10 @@ public class Activity_BT2 extends AppCompatActivity {
     }
 
     //Ham doi thoi gian
-    private String doiS_M(int s)
-    {
-        int a = s/60;
-        int b = s%60;
-        return ""+a+" : "+ b + " (m)";
+    private String doiS_M(int s) {
+        int a = s / 60;
+        int b = s % 60;
+        return "" + a + " : " + b + " (m)";
     }
 
     //tinhs ket  qua
