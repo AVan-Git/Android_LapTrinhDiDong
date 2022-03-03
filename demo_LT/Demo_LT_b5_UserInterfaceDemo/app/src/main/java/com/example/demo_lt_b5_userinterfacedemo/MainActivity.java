@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, dsDonvi);
 
+
         sp_Donvi.setAdapter(adapter);
 
         sp_Donvi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -84,14 +85,21 @@ public class MainActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int maID = Integer.parseInt(edID.getText().toString());
+                int maID;
+
+                try {
+                    maID  = Integer.parseInt(edID.getText().toString());
+
+                }catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Sai mã!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String hoten = edHoten.getText().toString();
 
                 String gioiTinh = ((RadioButton) findViewById(rdg.getCheckedRadioButtonId())).getText().toString();
 
                 for (NhanVien a :  nhanViens) {
                     if (a.getMaSo() == maID) {
-//                        a = new NhanVien( hoten, gioiTinh, donvi);
                         a.setDonvi(donvi);
                         a.setGioitinh(gioiTinh);
                         a.setHoten(hoten);
@@ -131,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         listView_Donvi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
                 NhanVien a = nhanViens.get(i);
 
                 edHoten.setText(a.getHoten());
@@ -147,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                         sp_Donvi.setSelection(i);
                     }
                 }
+//                txtKQ.setText("" +listView_Donvi.isSelected());
             }
         });
 
