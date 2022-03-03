@@ -46,6 +46,7 @@ public class Activity_BT2 extends AppCompatActivity {
     //
 
     Button btnRun;
+    CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,12 +93,20 @@ public class Activity_BT2 extends AppCompatActivity {
         btnRun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                btnRun.setEnabled(false);
 
-                CountDownTimer timer = new CountDownTimer(TGChay * 1000, TGNhay * 1000) {
+                timer = new CountDownTimer(TGChay * 1000,   1000) {
                     @Override
                     public void onTick(long l) {
-                        Long t = l / 1000; // thoi gian con lai
-                        Long a, b;
+                        long t = l / 1000; // thoi gian con lai
+                        long a, b;
+                        int soDu = TGChay%TGNhay;
+
+                        if (t%TGNhay == soDu)
+                        {
+                            dsKQ.addKQ(ketQua());
+                            txtTieuDe.setText("Ván " + dsKQ.getSize());
+                        }
 
                         int c, d;
                         if (t > 60) {
@@ -114,12 +123,12 @@ public class Activity_BT2 extends AppCompatActivity {
                         } else {
                             txtNhay.setText("" + TGNhay + " (s)");
                         }
-                        dsKQ.addKQ(ketQua());
-                        txtTieuDe.setText("Ván " + dsKQ.getSize());
                     }
 
                     @Override
                     public void onFinish() {
+
+                        btnRun.setEnabled(true);
                         txtKQ.setText("Hoàn thành.");
 
                         if (TGChay > 60) {
@@ -133,8 +142,8 @@ public class Activity_BT2 extends AppCompatActivity {
                             txtNhay.setText("" + TGNhay + " (s)");
                         }
                     }
-                }.start();
-
+                };
+                timer.start();
             }
 
             // hàm chọn bài
@@ -220,6 +229,8 @@ public class Activity_BT2 extends AppCompatActivity {
                 } else {
                     txtNhay.setText("" + TGNhay + " (s)");
                 }
+
+                timer.cancel();
             }
         });
 
