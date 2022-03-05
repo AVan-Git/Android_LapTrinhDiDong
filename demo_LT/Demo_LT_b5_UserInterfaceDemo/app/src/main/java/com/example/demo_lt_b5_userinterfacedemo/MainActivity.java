@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     int[] img = {R.drawable.avatar0, R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4
             , R.drawable.avatar5, R.drawable.avatar6, R.drawable.avatar7};
-    int z1 = 0;
+    int z1 = -1; // vị trí tấm ảnh
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,12 +152,13 @@ public class MainActivity extends AppCompatActivity {
                 String hoten = edHoten.getText().toString();
 
                 String gioiTinh = ((RadioButton) findViewById(rdg.getCheckedRadioButtonId())).getText().toString();
-                NhanVien nv = new NhanVien(maID, hoten, gioiTinh, donvi);
+                NhanVien nv = new NhanVien(maID, hoten, gioiTinh, donvi, img[z1]);
 
                 for (NhanVien a :
                         nhanViens) {
                     if (a.getMaSo() == maID)  {
                         Toast.makeText(MainActivity.this, "Trùng mã nhân viên.",Toast.LENGTH_SHORT).show();
+                        return;
                     }
                 }
 
@@ -175,6 +176,8 @@ public class MainActivity extends AppCompatActivity {
 
                 edHoten.setText(a.getHoten());
                 edID.setText("" + a.getMaSo());
+
+                imgAnh.setImageResource(a.getSoAnh());
 
                 if (a.getGioitinh().equals("Nam")) {
                     rdoNam.setChecked(true);
@@ -201,16 +204,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private  void getList_NhanVien(ArrayList<NhanVien> dsNV){
-        ArrayList<String> listItems = new ArrayList<>();
-
-        for (NhanVien a : nhanViens) {
-            listItems.add(a.toString());
-
-            ArrayAdapter<String> adapter1 = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1,
-                    android.R.id.text1, listItems);
-            listView_Donvi.setAdapter(adapter1);
-
-        }
+//        ArrayList<String> listItems = new ArrayList<>();
+//
+//        for (NhanVien a : nhanViens) {
+//            listItems.add(a.toString());
+//
+//            ArrayAdapter<String> adapter1 = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1,
+//                    android.R.id.text1, listItems);
+//            listView_Donvi.setAdapter(adapter1);
+//
+//        }
+        listView_Donvi.setAdapter(new NhanVienListAdapter(MainActivity.this, nhanViens));
     }
     //
 

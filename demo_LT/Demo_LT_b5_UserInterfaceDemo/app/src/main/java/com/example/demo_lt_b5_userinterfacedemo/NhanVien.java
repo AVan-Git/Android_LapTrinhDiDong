@@ -75,6 +75,7 @@ public class NhanVien {
         return  maSo +
                 " - " + hoten +
                 " - " + gioitinh +
-                " - " + donvi ;
+                " - " + soAnh +
+        " - " + donvi ;
     }
 }
