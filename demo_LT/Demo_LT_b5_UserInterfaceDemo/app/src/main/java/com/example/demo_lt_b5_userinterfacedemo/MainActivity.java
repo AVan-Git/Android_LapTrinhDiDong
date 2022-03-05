@@ -31,12 +31,17 @@ public class MainActivity extends AppCompatActivity {
     String donvi;
     ListView listView_Donvi;
 
+    int[] img = {R.drawable.avatar0, R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4
+            , R.drawable.avatar5, R.drawable.avatar6, R.drawable.avatar7};
+    int z1 = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         ImageView imgAnh = findViewById(R.id.imgNV);
+
         EditText edID = findViewById(R.id.edMa);
         EditText edHoten = findViewById(R.id.edHoten);
 
@@ -78,6 +83,32 @@ public class MainActivity extends AppCompatActivity {
         btnChonAnh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int x;
+                if (rdoNam.isChecked())
+                {
+                    x = randdom(4, 7);
+                }else if (rdoNu.isChecked())
+                {
+                    x = randdom(0, 3);
+                }else{
+                    x = (int) (Math.random()*8);
+                }
+                while (x == z1){
+                    if (rdoNam.isChecked())
+                    {
+                        x = randdom(4, 7);
+                    }else if (rdoNu.isChecked())
+                    {
+                        x = randdom(0, 3);
+                    }else{
+                        x = (int) (Math.random()*8);
+                    }
+                }
+
+                z1 = x;
+
+                imgAnh.setImageResource(img[x]);
+
 
             }
         });
@@ -104,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                         a.setGioitinh(gioiTinh);
                         a.setHoten(hoten);
                         getList_NhanVien(nhanViens);
-
+                        Toast.makeText(MainActivity.this, "Bạn đã sửa thông tin nhân viên "+ a.getHoten()+ ".", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
@@ -180,6 +211,12 @@ public class MainActivity extends AppCompatActivity {
             listView_Donvi.setAdapter(adapter1);
 
         }
+    }
+    //
+
+    private int randdom(int min, int max){
+
+        return (int) ((Math.random())*((max - min) + 1)+ min);
     }
 
 
