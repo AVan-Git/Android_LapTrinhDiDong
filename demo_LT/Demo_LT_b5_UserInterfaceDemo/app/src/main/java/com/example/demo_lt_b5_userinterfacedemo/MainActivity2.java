@@ -1,16 +1,21 @@
 package com.example.demo_lt_b5_userinterfacedemo;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
+import java.net.URL;
 import java.util.Random;
 
 public class MainActivity2 extends AppCompatActivity {
@@ -19,6 +24,8 @@ public class MainActivity2 extends AppCompatActivity {
             , R.drawable.avatar5, R.drawable.avatar6, R.drawable.avatar7};
     int z1 = 0;
     String z3 = "";
+    ImageView imgAnh;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,37 +35,38 @@ public class MainActivity2 extends AppCompatActivity {
         Button btnExit = findViewById(R.id.btnExit);
         Button btnChonAnh = findViewById(R.id.btnChonAnh);
 
-        ImageView imgAnh = findViewById(R.id.imgNV);
+        imgAnh = findViewById(R.id.imgNV2);
 
-        TextView textView = findViewById(R.id.txtA);
+        textView = findViewById(R.id.txtA);
 
         btnChonAnh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int x = (int) (Math.random()*6);
-                while (x == z1){
-                    x = (int) (Math.random()*6);
+                try {
+
+                    Intent intent  =  new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent, 999);
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
                 }
-                z1 = x;
-
-                z3 += x;
-                textView.setText(z3);
-
-
-                imgAnh.setImageResource(img[x]);
-
-//                File imgFile = new File("/img/avatar1.jpg");
-//
-//                if (imgFile.exists()) {
-//
-//                    Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-//
-//                    imgAnh.setImageBitmap(myBitmap);
-//
-//                }
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 999 && data != null)
+        {
+            Uri selectdImage = data.getData();
+            ImageView imgAnh = findViewById(R.id.imgNV2);
+
+            imgAnh.setImageURI(selectdImage);
+
+        }
     }
 
     private int randdom(int min, int max){

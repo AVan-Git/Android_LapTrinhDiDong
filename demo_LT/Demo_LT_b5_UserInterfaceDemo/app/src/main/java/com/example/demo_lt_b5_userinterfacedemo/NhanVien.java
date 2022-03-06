@@ -5,13 +5,13 @@ public class NhanVien {
     private String hoten;
     private String gioitinh;
     private String donvi;
-    private int soAnh;
+    private String soAnh;
 
-    public int getSoAnh() {
+    public String getSoAnh() {
         return soAnh;
     }
 
-    public void setSoAnh(int soAnh) {
+    public void setSoAnh(String soAnh) {
         this.soAnh = soAnh;
     }
     public String getHoten() {
@@ -59,7 +59,7 @@ public class NhanVien {
         this.donvi = donvi;
     }
 
-    public NhanVien(int maSo, String hoten, String gioitinh, String donvi, int soAnh) {
+    public NhanVien(int maSo, String hoten, String gioitinh, String donvi, String soAnh) {
         this.maSo = maSo;
         this.hoten = hoten;
         this.gioitinh = gioitinh;

@@ -15,7 +15,7 @@
         android:text="Thoát" />
 
     <ImageView
-        android:id="@+id/imgNV"
+        android:id="@+id/imgNV2"
         android:layout_width="180dp"
         android:layout_height="120dp" />
 
@@ -29,6 +29,7 @@
         android:id="@+id/txtA"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:textColor="#ff0"
         android:gravity="center"
         android:textSize="20sp" />
 

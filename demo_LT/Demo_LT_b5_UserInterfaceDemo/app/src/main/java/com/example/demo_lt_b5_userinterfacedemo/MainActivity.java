@@ -1,8 +1,12 @@
 package com.example.demo_lt_b5_userinterfacedemo;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,30 +26,28 @@ import java.util.ArrayList;
 /**
  * Chọn anh
  * Sửa giao điện
- * 
  */
 public class MainActivity extends AppCompatActivity {
 
     String dsDonvi[];
     ArrayList<NhanVien> nhanViens = new ArrayList<>();
-    String donvi;
+    String donvi, maAnh;
     ListView listView_Donvi;
+    ImageView imgAnh;
+    TextView txtKQ;
 
-    int[] img = {R.drawable.avatar0, R.drawable.avatar1, R.drawable.avatar2, R.drawable.avatar3, R.drawable.avatar4
-            , R.drawable.avatar5, R.drawable.avatar6, R.drawable.avatar7};
-    int z1 = -1; // vị trí tấm ảnh
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView imgAnh = findViewById(R.id.imgNV);
+        imgAnh = findViewById(R.id.imgNV);
 
         EditText edID = findViewById(R.id.edMa);
         EditText edHoten = findViewById(R.id.edHoten);
 
-        TextView txtKQ = findViewById(R.id.txtKQ);
+        txtKQ = findViewById(R.id.txtKQ);
 
         Button btnAdd = findViewById(R.id.btnAdd);
         Button btnUpdate = findViewById(R.id.btnUpdate);
@@ -68,6 +70,16 @@ public class MainActivity extends AppCompatActivity {
 
         sp_Donvi.setAdapter(adapter);
 
+
+        // data
+//        nhanViens.add(new NhanVien(1, "Bá", "Nam", "Phòng kỹ thuật"
+//                , "content://media/external_primary/images/media/3137"));
+//        nhanViens.add(new NhanVien(2, "Hà", "Nữ", "Phòng tiếp thị"
+//                , "content://media/external_primary/images/media/3142"));
+//        getList_NhanVien();
+
+
+//
         sp_Donvi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -83,59 +95,32 @@ public class MainActivity extends AppCompatActivity {
         btnChonAnh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int x;
-                if (rdoNam.isChecked())
-                {
-                    x = randdom(4, 7);
-                }else if (rdoNu.isChecked())
-                {
-                    x = randdom(0, 3);
-                }else{
-                    x = (int) (Math.random()*8);
+                try {
+
+                    Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(intent, 999);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                while (x == z1){
-                    if (rdoNam.isChecked())
-                    {
-                        x = randdom(4, 7);
-                    }else if (rdoNu.isChecked())
-                    {
-                        x = randdom(0, 3);
-                    }else{
-                        x = (int) (Math.random()*8);
-                    }
-                }
-
-                z1 = x;
-
-                imgAnh.setImageResource(img[x]);
-
-
             }
         });
         //
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int maID;
-
-                try {
-                    maID  = Integer.parseInt(edID.getText().toString());
-
-                }catch (Exception e){
-                    Toast.makeText(MainActivity.this, "Sai mã!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                int maID = Integer.parseInt(edID.getText().toString());
                 String hoten = edHoten.getText().toString();
-
                 String gioiTinh = ((RadioButton) findViewById(rdg.getCheckedRadioButtonId())).getText().toString();
 
-                for (NhanVien a :  nhanViens) {
+
+                for (NhanVien a : nhanViens) {
                     if (a.getMaSo() == maID) {
                         a.setDonvi(donvi);
                         a.setGioitinh(gioiTinh);
                         a.setHoten(hoten);
-                        getList_NhanVien(nhanViens);
-                        Toast.makeText(MainActivity.this, "Bạn đã sửa thông tin nhân viên "+ a.getHoten()+ ".", Toast.LENGTH_SHORT).show();
+                        a.setSoAnh(maAnh);
+                        getList_NhanVien();
+                        Toast.makeText(MainActivity.this, "Bạn đã sửa thông tin nhân viên " + a.getHoten() + ".", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
@@ -152,19 +137,38 @@ public class MainActivity extends AppCompatActivity {
                 String hoten = edHoten.getText().toString();
 
                 String gioiTinh = ((RadioButton) findViewById(rdg.getCheckedRadioButtonId())).getText().toString();
-                NhanVien nv = new NhanVien(maID, hoten, gioiTinh, donvi, img[z1]);
+
+                NhanVien nv = new NhanVien(maID, hoten, gioiTinh, donvi, maAnh);
 
                 for (NhanVien a :
                         nhanViens) {
-                    if (a.getMaSo() == maID)  {
-                        Toast.makeText(MainActivity.this, "Trùng mã nhân viên.",Toast.LENGTH_SHORT).show();
+                    if (a.getMaSo() == maID) {
+                        Toast.makeText(MainActivity.this, "Trùng mã nhân viên.", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
 
                 nhanViens.add(nv);
 
-                getList_NhanVien(nhanViens);
+
+                getList_NhanVien();
+            }
+        });
+
+        listView_Donvi.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                NhanVien a = nhanViens.get(i);
+                Intent intent = new Intent(MainActivity.this, Activity_CT_NhanVien.class);
+                intent.putExtra("maID", a.getMaSo());
+                intent.putExtra("hoten", a.getHoten());
+                intent.putExtra("gioiTinh", a.getGioitinh());
+                intent.putExtra("donVi", a.getDonvi());
+                intent.putExtra("soAnh", a.getSoAnh());
+
+                startActivity(intent);
+return false;
+
             }
         });
 
@@ -177,7 +181,8 @@ public class MainActivity extends AppCompatActivity {
                 edHoten.setText(a.getHoten());
                 edID.setText("" + a.getMaSo());
 
-                imgAnh.setImageResource(a.getSoAnh());
+                imgAnh.setImageURI(Uri.parse(a.getSoAnh()));
+                maAnh = a.getSoAnh();
 
                 if (a.getGioitinh().equals("Nam")) {
                     rdoNam.setChecked(true);
@@ -190,7 +195,6 @@ public class MainActivity extends AppCompatActivity {
                         sp_Donvi.setSelection(i);
                     }
                 }
-//                txtKQ.setText("" +listView_Donvi.isSelected());
             }
         });
 
@@ -203,24 +207,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    private  void getList_NhanVien(ArrayList<NhanVien> dsNV){
-//        ArrayList<String> listItems = new ArrayList<>();
-//
-//        for (NhanVien a : nhanViens) {
-//            listItems.add(a.toString());
-//
-//            ArrayAdapter<String> adapter1 = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1,
-//                    android.R.id.text1, listItems);
-//            listView_Donvi.setAdapter(adapter1);
-//
-//        }
-        listView_Donvi.setAdapter(new NhanVienListAdapter(MainActivity.this, nhanViens));
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 999 && data != null) {
+            Uri selectdImage = data.getData();
+
+            imgAnh.setImageURI(selectdImage);
+            maAnh = "" + selectdImage;
+        }
     }
-    //
 
-    private int randdom(int min, int max){
+    private void getList_NhanVien() {
 
-        return (int) ((Math.random())*((max - min) + 1)+ min);
+        listView_Donvi.setAdapter(new NhanVienListAdapter(MainActivity.this, nhanViens));
     }
 
 

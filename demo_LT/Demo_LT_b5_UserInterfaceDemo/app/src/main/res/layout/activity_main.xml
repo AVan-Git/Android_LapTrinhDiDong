@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
-
 
 
     <Button
@@ -14,17 +14,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
+        android:backgroundTint="#FD2F2F"
         android:text="Thoát" />
 
     <ImageView
         android:layout_width="180dp"
         android:layout_height="120dp"
         android:id="@+id/imgNV"/>
+
     <Button
         android:id="@+id/btnChonAnh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chọn ảnh"/>
+        android:backgroundTint="#9C27B0"
+        android:textColor="@color/white"
+        android:text="Chọn ảnh" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,9 +40,9 @@
             android:id="@+id/edMa"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:inputType="number"
-            android:hint="nhập mã"
+            android:hint="Mã ID"
             android:padding="10dp"
             android:textSize="18sp" />
 
@@ -50,8 +54,8 @@
             android:id="@+id/edHoten"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="6"
-            android:hint="nhập họ tên"
+            android:layout_weight="7"
+            android:hint="Họ tên"
             android:padding="10dp"
             android:textSize="18sp" />
 
@@ -68,7 +72,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:hint="Giới tính"
+            android:text="Giới tính"
             android:padding="10dp"
             android:textSize="18sp" />
 
@@ -81,13 +85,17 @@
 
             <RadioButton
                 android:id="@+id/rdoNam"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Nam" />
 
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+
             <RadioButton
                 android:id="@+id/rdoNu"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="Nữ" />
         </RadioGroup>
@@ -100,20 +108,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="10">
+        android:weightSum="11">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:text="Đơn vị: "
+            android:padding="10dp"
             android:textSize="20dp" />
 
         <Spinner
             android:id="@+id/spinner_Donvi"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="7" />
+            android:layout_height="match_parent"
+            android:layout_weight="8" />
     </LinearLayout>
 
 
@@ -121,7 +130,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="11">
+        android:weightSum="16">
 
         <TextView
             android:layout_width="0dp"
@@ -132,22 +141,43 @@
             android:id="@+id/btnAdd"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="4"
+            android:backgroundTint="#9C27B0"
+            android:textColor="@color/white"
             android:text="Thêm" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnUpdate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="4"
+            android:backgroundTint="#9C27B0"
+            android:textColor="@color/white"
             android:text="Sửa" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btnTruyVan"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="4"
+            android:backgroundTint="#9C27B0"
+            android:textColor="@color/white"
             android:text="truy vấn" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
 
     </LinearLayout>
@@ -162,8 +192,7 @@
 
     <ListView
         android:id="@+id/listview_Donvi"
-
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
 

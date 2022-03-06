@@ -1,6 +1,7 @@
 package com.example.demo_lt_b5_userinterfacedemo;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,9 +57,9 @@ public class NhanVienListAdapter extends BaseAdapter {
         TextView textView = view.findViewById(R.id.textView_population);
 
         NhanVien a = dsNhanvien.get(i);
-        imgAnh.setImageResource(a.getSoAnh());
+        imgAnh.setImageURI(Uri.parse(a.getSoAnh()));
 
-        txtName.setText(""+ a.getMaSo()+ " - "+ a.getHoten()+ " - "+ a.getGioitinh());
+        txtName.setText(""+ a.getHoten()+ "( "+ a.getGioitinh() + " )");
         textView.setText(a.getDonvi());
 
         return view;
