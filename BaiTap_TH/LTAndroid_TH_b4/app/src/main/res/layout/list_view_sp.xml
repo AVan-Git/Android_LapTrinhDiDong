@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="125dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txtNameSP"
+        android:layout_width="156dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        android:paddingTop="8dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtShop"
+        android:layout_width="118dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#FF0303"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtNameSP"
+        app:layout_constraintTop_toBottomOf="@+id/txtNameSP" />
+
+    <Button
+        android:id="@+id/btnChat"
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#FF0000"
+        android:text="Chat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtNameSP"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="39dp"
+        android:layout_height="28dp"
+        android:text="Shop"
+        android:textColor="#4E4E4E"
+        app:layout_constraintBottom_toBottomOf="@+id/txtShop"
+        app:layout_constraintStart_toStartOf="@+id/txtNameSP" />
+</androidx.constraintlayout.widget.ConstraintLayout>
