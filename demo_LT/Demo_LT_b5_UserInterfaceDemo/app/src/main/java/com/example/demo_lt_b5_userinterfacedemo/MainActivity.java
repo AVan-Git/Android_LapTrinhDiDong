@@ -1,8 +1,11 @@
 package com.example.demo_lt_b5_userinterfacedemo;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnAdd = findViewById(R.id.btnAdd);
         Button btnUpdate = findViewById(R.id.btnUpdate);
-        Button btnTruyVan = findViewById(R.id.btnTruyVan);
+        Button btnXoa = findViewById(R.id.btnXoa);
         Button btnExit = findViewById(R.id.btnExit);
         Button btnChonAnh = findViewById(R.id.btnChonAnh);
 
@@ -92,6 +95,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //
+        btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                int maID;
+                try {
+                    maID = Integer.parseInt(edID.getText().toString());
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, "Hãy chọn một nhân viên cần xóa.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                for (NhanVien a :
+                        nhanViens) {
+                    if (a.getMaSo() == maID) {
+
+                        AlertDialog.Builder myDialog = new AlertDialog.Builder(MainActivity.this);
+                        myDialog.setTitle("Bạn có muốn xóa nhân viên có mã " + maID + " không?");
+                        myDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                nhanViens.remove(a);
+                                getList_NhanVien();
+                                Toast.makeText(MainActivity.this, "Xóa thành công.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        });
+                        myDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(MainActivity.this, "Bạn đã chọn nút NO.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        AlertDialog dialog = myDialog.create();
+                        dialog.show();
+
+
+                    }
+                }
+
+                Toast.makeText(MainActivity.this, "Mã nhân viên "+ maID + " không tìm thấy?", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        //
         btnChonAnh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +158,14 @@ public class MainActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int maID = Integer.parseInt(edID.getText().toString());
+                int maID;
+                try {
+                    maID = Integer.parseInt(edID.getText().toString());
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, "Hãy chọn một nhân viên cần xóa.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String hoten = edHoten.getText().toString();
                 String gioiTinh = ((RadioButton) findViewById(rdg.getCheckedRadioButtonId())).getText().toString();
 
@@ -133,6 +190,9 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (checkData()) {
+                    return;
+                }
                 int maID = Integer.parseInt(edID.getText().toString());
                 String hoten = edHoten.getText().toString();
 
@@ -153,6 +213,43 @@ public class MainActivity extends AppCompatActivity {
 
                 getList_NhanVien();
             }
+
+            private boolean checkData() {
+                int maID;
+                try {
+                    maID = Integer.parseInt(edID.getText().toString());
+                    if (maID <= 0) {
+                        Toast.makeText(MainActivity.this, "Mã nhân viên nhập sai.", Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                } catch (Exception e) {
+                    return true;
+                }
+                String hoten = edHoten.getText().toString();
+                if (hoten.equals("")) {
+                    Toast.makeText(MainActivity.this, "Họ tên nhân viên không có.", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                String gioiTinh;
+                try {
+                    gioiTinh= ((RadioButton) findViewById(rdg.getCheckedRadioButtonId())).getText().toString();
+                }catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Hãy chọn giới tính.", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                if (donvi.equals("")) {
+                    Toast.makeText(MainActivity.this, "Hãy chọn đơn vị làm việc.", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+                if (maAnh.equals("")) {
+                    Toast.makeText(MainActivity.this, "Chưa chọn ảnh.", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                return false;
+            }
         });
 
         listView_Donvi.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -167,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("soAnh", a.getSoAnh());
 
                 startActivity(intent);
-return false;
+                return false;
 
             }
         });
