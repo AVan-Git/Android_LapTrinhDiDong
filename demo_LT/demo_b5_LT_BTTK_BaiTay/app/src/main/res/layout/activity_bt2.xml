@@ -81,6 +81,15 @@
         android:layout_height="20dp" />
 
     <TextView
+        android:id="@+id/txtKQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Kết quả:"
+        android:padding="10dp"
+        android:textSize="20sp" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#0055FF"
@@ -217,12 +226,5 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtKQ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Kết quả:"
-        android:textSize="20sp" />
 
 </LinearLayout>

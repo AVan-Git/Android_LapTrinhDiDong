@@ -17,6 +17,15 @@
         android:text="PLAY CARDS"
         android:textSize="30sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtKQ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kết quả:"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="20sp"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -155,12 +164,5 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtKQ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Kết quả:"
-        android:gravity="center"
-        android:textSize="20sp"/>
 
 </LinearLayout>

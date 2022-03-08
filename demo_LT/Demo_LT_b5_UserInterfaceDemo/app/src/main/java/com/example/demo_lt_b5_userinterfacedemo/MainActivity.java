@@ -126,18 +126,18 @@ public class MainActivity extends AppCompatActivity {
                         myDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                Toast.makeText(MainActivity.this, "Bạn đã chọn nút NO.", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(MainActivity.this, "Bạn đã chọn nút NO.", Toast.LENGTH_SHORT).show();
                             }
                         });
 
                         AlertDialog dialog = myDialog.create();
                         dialog.show();
-
+                        return;
 
                     }
                 }
 
-                Toast.makeText(MainActivity.this, "Mã nhân viên "+ maID + " không tìm thấy?", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Mã nhân viên " + maID + " không tìm thấy?", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -200,8 +200,8 @@ public class MainActivity extends AppCompatActivity {
 
                 NhanVien nv = new NhanVien(maID, hoten, gioiTinh, donvi, maAnh);
 
-                for (NhanVien a :
-                        nhanViens) {
+
+                for (NhanVien a : nhanViens) {
                     if (a.getMaSo() == maID) {
                         Toast.makeText(MainActivity.this, "Trùng mã nhân viên.", Toast.LENGTH_SHORT).show();
                         return;
@@ -233,8 +233,8 @@ public class MainActivity extends AppCompatActivity {
 
                 String gioiTinh;
                 try {
-                    gioiTinh= ((RadioButton) findViewById(rdg.getCheckedRadioButtonId())).getText().toString();
-                }catch (Exception e){
+                    gioiTinh = ((RadioButton) findViewById(rdg.getCheckedRadioButtonId())).getText().toString();
+                } catch (Exception e) {
                     Toast.makeText(MainActivity.this, "Hãy chọn giới tính.", Toast.LENGTH_SHORT).show();
                     return true;
                 }
