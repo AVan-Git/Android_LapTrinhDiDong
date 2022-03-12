@@ -10,4 +10,5 @@
     <color name="bg_4a">#C1C0C0</color>
     <color name="blue">#00f</color>
     <color name="yellow">#ff0</color>
+    <color name="color_ratingbar">#FBE41B</color>
 </resources>
