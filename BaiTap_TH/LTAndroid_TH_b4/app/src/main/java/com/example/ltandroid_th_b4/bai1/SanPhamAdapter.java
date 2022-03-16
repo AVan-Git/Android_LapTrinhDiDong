@@ -1,4 +1,4 @@
-package com.example.ltandroid_th_b4;
+package com.example.ltandroid_th_b4.bai1;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.ltandroid_th_b4.R;
+import com.example.ltandroid_th_b4.bai1.SanPham;
 
 import java.util.ArrayList;
 

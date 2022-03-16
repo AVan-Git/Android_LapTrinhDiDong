@@ -1,15 +1,20 @@
 package com.example.demo_lt_b5_userinterfacedemo;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,6 +28,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -32,12 +41,14 @@ import java.util.ArrayList;
  */
 public class MainActivity extends AppCompatActivity {
 
+    int z1 = 1;
     String dsDonvi[];
     ArrayList<NhanVien> nhanViens = new ArrayList<>();
     String donvi, maAnh;
     ListView listView_Donvi;
     ImageView imgAnh;
     TextView txtKQ;
+    String fileName ;
 
 
     @Override
@@ -210,7 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
                 nhanViens.add(nv);
 
-
+                z1 = 1;
                 getList_NhanVien();
             }
 
@@ -262,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("gioiTinh", a.getGioitinh());
                 intent.putExtra("donVi", a.getDonvi());
                 intent.putExtra("soAnh", a.getSoAnh());
+                z1 = 0;
 
                 startActivity(intent);
                 return false;
@@ -299,7 +311,17 @@ public class MainActivity extends AppCompatActivity {
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+
+                if (z1 == 0){
+                    z1++;
+                    edHoten.setText("");
+                    edID.setText("");
+                    rdoNam.setChecked(true);
+                    donvi = dsDonvi[0];
+                }
+                else{
+                    finish();
+                }
             }
         });
 
@@ -321,6 +343,99 @@ public class MainActivity extends AppCompatActivity {
 
         listView_Donvi.setAdapter(new NhanVienListAdapter(MainActivity.this, nhanViens));
     }
+    //
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.mymenu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        fileName = "dsSinhVien.txt";
+        switch (item.getItemId()){
+            case R.id.mnDocfile:{
+                Toast.makeText(MainActivity.this, "Doc ds từ file", Toast.LENGTH_SHORT).show();
+                try {
+//                    luuDSNhanVien(fileName);
+
+//                    getDir(fileName, MODE_PRIVATE);
+                    String data = "Wellcome to our class";
+
+                    FileOutputStream outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
+                    outputStream.write(data.getBytes());
+
+                    outputStream.close();
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                return true;
+            }
+            case R.id.mnLuuds:{
+                Toast.makeText(MainActivity.this, "Luu ds vào file", Toast.LENGTH_SHORT).show();
+                try {
+//                    docDsNhanVien(fileName);
+                    String data = ""; int c;
+                    FileInputStream inputStream = openFileInput(fileName);
+                    while((c = inputStream.read()) != -1){
+                        data += Character.toString((char) c);
+                    }
+
+                    txtKQ.setText(""+data);
+                    inputStream.close();
+
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                return true;
+            }
+            case R.id.mnXoafile:{
+                Toast.makeText(MainActivity.this, "Xoa file", Toast.LENGTH_SHORT).show();
+                try {
+//                    deleteFile(fileName);
+//                    txtKQ.setText("del");
+                    txtKQ.setText("" + getFilesDir().toString());
+                }catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void luuDSNhanVien(String fileName) throws IOException {
+//        getDir(fileName, MODE_PRIVATE);
+//        String data = "Wellcome to our class";
+//
+//        FileOutputStream outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
+//        outputStream.write(data.getBytes());
+//
+//        outputStream.close();
+
+    }
+    //
+    private void docDsNhanVien(String fileName) throws IOException {
+//        String data = ""; int c;
+//        FileInputStream inputStream = openFileInput(fileName);
+//        while((c = inputStream.read()) != -1){
+//            data += Character.toString((char) c);
+//        }
+//
+//        txtKQ.setText(""+data);
+//        inputStream.close();
+    }
+
+
+
+
 
 
 }

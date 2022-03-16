@@ -1,4 +1,4 @@
-package com.example.ltandroid_th_b4;
+package com.example.ltandroid_th_b4.bai1;
 
 public class SanPham {
     private int id;
