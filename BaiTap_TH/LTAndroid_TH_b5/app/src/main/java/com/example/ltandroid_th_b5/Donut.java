@@ -1,6 +1,9 @@
 package com.example.ltandroid_th_b5;
 
-public class Donut {
+import java.io.Serializable;
+
+//@SuppressWarnings("serial") //  Với chú thích này, chúng tôi sẽ ẩn các cảnh báo của trình biên dịch
+public class Donut implements Serializable {
     private int maID;
     private String tenSP;
     private double giaSP;
