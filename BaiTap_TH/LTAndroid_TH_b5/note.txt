@@ -1,3 +1,5 @@
 indexOf(): để tìm kiếm
 sự kiện cho dấu btnAdd viết trong class DonutAdapter(implete  BaseAdapter)
 androidx.appcompat.widget.AppCompatButton
+extends AppCompatActivity
+ Donut implements Serializable 
