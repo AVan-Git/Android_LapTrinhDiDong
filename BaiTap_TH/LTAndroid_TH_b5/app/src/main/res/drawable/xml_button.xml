@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="10dp" />
-
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/button_checked"
+        android:state_pressed="true"/>       <!-- Hiện màu đỏ khi ấn vào nút -->
+    <item android:drawable="@color/gray"
+        android:state_pressed="false"/>      <!-- Hiện màu xanh da trời khi không nhấn nút -->
+</selector>

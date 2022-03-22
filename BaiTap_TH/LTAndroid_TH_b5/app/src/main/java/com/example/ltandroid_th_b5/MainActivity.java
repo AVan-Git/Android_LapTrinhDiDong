@@ -1,9 +1,13 @@
 package com.example.ltandroid_th_b5;
 
 
+import static com.example.ltandroid_th_b5.R.drawable.xml_button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,6 +18,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,12 +91,17 @@ public class MainActivity extends AppCompatActivity {
         });
         //
         btn_Floating.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
                 edSearch.setText("");
                 adapter = new DonutAdapter(MainActivity.this, getSearch("Floating"));
 
                 listView.setAdapter(adapter);
+
+//                btn_Floating.setBackgroundResource(R.color.button_checked);
+                btn_Floating.setBackgroundColor(R.color.button_checked);
+
             }
         });
         //
@@ -110,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Donut> list = new ArrayList<>();
         for (Donut a :
                 donuts) {
-            if(a.getTenSP().substring(0, str.length()).equalsIgnoreCase(str)){
+            if(a.getTenSP().toLowerCase(Locale.ROOT).indexOf(str) != -1){
                 list .add(a);
             }
         }
