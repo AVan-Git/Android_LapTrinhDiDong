@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(MainActivity.this, .class);
-//                intent.putExtra("sp", dsSanPham.get(i));
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, Activity_CT_SanPham.class);
+                intent.putExtra("sp", dsSanPham.get(i));
+                startActivity(intent);
 
             }
         });

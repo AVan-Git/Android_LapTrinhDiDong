@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/activity_ct_san_pham.xml" value="0.24010416666666667" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/activity_ds_san_pham.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/activity_fragment_below.xml" value="0.1" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/activity_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/fragment_above.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/fragment_below.xml" value="0.1" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/fragment_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/fragment_item_list.xml" value="0.24010416666666667" />
+        <entry key="..\:/Android_LapTrinhDiDong/BaiTap_TH/LTAndroid_TH_b6_Fragment/app/src/main/res/layout/listview_sanpham.xml" value="0.25416666666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

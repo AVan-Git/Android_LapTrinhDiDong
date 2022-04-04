@@ -1,1 +1,10 @@
-demo_b9_LT_Fragment_dsSP_TK3: chưa xong
+demo_b9_LT_SQLite: thầy  chưa demo xong tự tìm hiểu
+demo_b9_LT_Fragment_dsSP_TK3: chưa xong(https://xuanthulab.net/xac-dinh-trang-thai-xoay-man-hinh-trong-android.html)
+
+<
+https://freetuts.net/fragment-trong-android-2154.html
+https://xuanthulab.net/xac-dinh-trang-thai-xoay-man-hinh-trong-android.html
+https://viblo.asia/p/fragment-va-co-che-backstack-va-su-dung-fragment-hieu-qua-nhat-p1-1Je5EMmG5nL
+
+https://yellowcodebooks.com/2017/12/09/android-bai-32-hien-thi-fragment/#.YkoxqOhBxPY
+>

@@ -1,9 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Activity_CT_SanPham">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/img_Ac3"
+        android:layout_width="0dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/milo" />
+
+    <TextView
+        android:id="@+id/txtName_ac3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Sữa đậu nành Fami"
+        android:textColor="#E91E63"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imgAdd"
+        app:layout_constraintStart_toStartOf="@+id/img_Ac3"
+        app:layout_constraintTop_toBottomOf="@+id/img_Ac3" />
+
+    <TextView
+        android:id="@+id/txtGia_ac3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="9000 NVD/Hộp( 200ml )"
+        android:textColor="#CB000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtName_ac3"
+        app:layout_constraintStart_toStartOf="@+id/txtName_ac3"
+        app:layout_constraintTop_toBottomOf="@+id/txtName_ac3" />
+
+    <TextView
+        android:id="@+id/txtXuatXu_ac3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thụy Điển(Etra Pak)"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView10"
+        app:layout_constraintStart_toEndOf="@+id/textView10" />
+
+    <ImageView
+        android:id="@+id/imgAdd"
+        android:layout_width="49dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtName_ac3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txtName_ac3"
+        app:srcCompat="@drawable/ic_baseline_add_shopping_cart_24" />
+
+    <TextView
+        android:id="@+id/txtThanhPhan_ac3"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Thành phần: nước, dịch trích từ đậu nành hạt, đường kính trắng, chất điều chỉnh độ pH,..."
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/txtXuatXu_ac3" />
+
+    <TextView
+        android:id="@+id/txtCongDung_ac3"
+        android:layout_width="0dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:text="Công dụng: Cung cấp chất dinh dưỡng có trong sữa bò tươi như: Chất đạm, chất béo, các vitamin và khoáng chất cần thiết cho sự phát triển về trí não và chiều cao."
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtThanhPhan_ac3"
+        app:layout_constraintTop_toBottomOf="@+id/txtThanhPhan_ac3" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:text="Hướng dẫn sử dụng: dùng 1-2 hộp/ngày, lắc đều trước khi uống."
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtCongDung_ac3"
+        app:layout_constraintTop_toBottomOf="@+id/txtCongDung_ac3" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:text="Đối tượng sử dụng: trẻ em, người lớn."
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Xuất xứ: "
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/txtName_ac3"
+        app:layout_constraintTop_toBottomOf="@+id/txtGia_ac3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
