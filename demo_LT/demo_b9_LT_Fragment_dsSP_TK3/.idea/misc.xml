@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b9_LT_Fragment_dsSP_TK3/app/src/main/res/layout-land/activity_main.xml" value="0.21516754850088182" />
         <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b9_LT_Fragment_dsSP_TK3/app/src/main/res/layout/activity_ct_san_pham.xml" value="0.12158054711246201" />
-        <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b9_LT_Fragment_dsSP_TK3/app/src/main/res/layout/activity_main.xml" value="0.12158054711246201" />
+        <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b9_LT_Fragment_dsSP_TK3/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b9_LT_Fragment_dsSP_TK3/app/src/main/res/layout/fragment_ct_spham.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b9_LT_Fragment_dsSP_TK3/app/src/main/res/layout/gridview_listsua.xml" value="0.21557971014492755" />
       </map>
     </option>
   </component>

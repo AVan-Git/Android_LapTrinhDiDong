@@ -39,7 +39,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:gravity="center"
         android:text="9000 NVD/Hộp( 200ml )"
         android:textColor="#CB000000"
         android:textSize="20sp"

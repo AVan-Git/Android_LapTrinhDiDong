@@ -25,14 +25,14 @@ public class MainActivity extends AppCompatActivity {
 
         InfoScreen();
 
-        OrientationEventListener orientationEventListener = new OrientationEventListener(MainActivity.this, SensorManager.SENSOR_DELAY_NORMAL) {
-            @Override
-            public void onOrientationChanged(int i) {
-                txtDoNghieng.setText(""+i);
-                InfoScreen();
-            }
-        };
-        orientationEventListener.enable();
+//        OrientationEventListener orientationEventListener = new OrientationEventListener(MainActivity.this, SensorManager.SENSOR_DELAY_NORMAL) {
+//            @Override
+//            public void onOrientationChanged(int i) {
+//                txtDoNghieng.setText(""+i);
+//                InfoScreen();
+//            }
+//        };
+//        orientationEventListener.enable();
 
     }
     /**

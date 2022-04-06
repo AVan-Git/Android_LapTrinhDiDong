@@ -7,4 +7,6 @@ https://xuanthulab.net/xac-dinh-trang-thai-xoay-man-hinh-trong-android.html
 https://viblo.asia/p/fragment-va-co-che-backstack-va-su-dung-fragment-hieu-qua-nhat-p1-1Je5EMmG5nL
 
 https://yellowcodebooks.com/2017/12/09/android-bai-32-hien-thi-fragment/#.YkoxqOhBxPY
+
+https://yellowcodebooks.com/2017/09/06/android-bai-26-lam-quen-voi-activity/#Tao_Moi_XyzActivityjava_Va_activity_xyzxml
 >
