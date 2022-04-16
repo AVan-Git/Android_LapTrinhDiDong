@@ -1,5 +1,6 @@
 package com.example.demo_b9_lt_fragment_dssp_tk3;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.FragmentManager;
@@ -25,13 +26,20 @@ public class MainActivity extends AppCompatActivity {
     Display display;
     FragmentManager fragmentManager;
     FragmentTransaction transaction;
-    int z1 = 0;
+    int z1 = 0, z2 = 0;
     Fragment_CT_SPham fragment_ct_sPham;
+    ArrayList<SanPham> dsSanPham = new ArrayList<>();
+    private SanPham a = new SanPham();
 
+    TextView txtName, txtGia, txtXuatXu, txtCongDung, txtThanhPhan;
+
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.d("TAG - a:", a.toString());
 
         fragmentManager = getFragmentManager();
         transaction = fragmentManager.beginTransaction();
@@ -39,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
         InfoScreen(); // set màn hình đang ở trang thái nào(đứng || nằm)
 
         GridView gridView = findViewById(R.id.gridView);
-
-        ArrayList<SanPham> dsSanPham = new ArrayList<>();
 
         dsSanPham.add(new SanPham(R.drawable.sua_tuoi_dalat_milk_thanh_trung_khong_duong_447031, "Sữa Dalat Milk", "Ireland (Dairy Master )", 6000, 200, "100% sữa bò tươi,...", "Cung cấp chất dinh dưỡng có trong sữa bò tươi như: Chất đạm, chất béo, các vitamin và khoáng chất"));
         dsSanPham.add(new SanPham(R.drawable.sua_oc_cho_hanh_nhan_dau_den_han_quoc_213642, "Sữa Óc Chó  ", "Hàn Quốc", 9000, 195, "Sữa đậu nành đen 90%, quả óc chó 0.4%, đậu nành đen 0.2% Hàn Quốc, v.v", "Giúp đường tiêu hóa tốt hơn, ăn ngon hơn, cơ thể khỏe mạnh hơn, da đẹp hơn, đầu óc minh mẫn hơn"));
@@ -55,29 +61,31 @@ public class MainActivity extends AppCompatActivity {
         dsSanPham.add(new SanPham(R.drawable.sua_tuoi_dalat_milk_thanh_trung_khong_duong_447031, "", "", 9000, 200, "", ""));
         dsSanPham.add(new SanPham(R.drawable.sua_tuoi_dalat_milk_thanh_trung_khong_duong_447031, "", "", 9000, 200, "", ""));
 
+
         gridView.setAdapter(new SanPhamAdapter(MainActivity.this, dsSanPham));
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                a = dsSanPham.get(i);
                 if (z1 > 0) {
                     Intent intent = new Intent(MainActivity.this, Activity_CT_SanPham.class);
+
+                    Log.d("TAG - a ( gridView.setOnItemClickListener ):", a.toString());
                     intent.putExtra("sp", dsSanPham.get(i));
-                    startActivity(intent);
+                    startActivityForResult(intent, 999);
                 } else {
 
                     fragment_ct_sPham = (Fragment_CT_SPham) getFragmentManager().findFragmentById(R.id.fragment_ct_spham);
-                    SanPham a = dsSanPham.get(i);
-
-                    Log.d("SanPham", a.toString());
 
 //                    fragment_ct_sPham.setUpdate(a);
 
-                    TextView txtName = (TextView) findViewById(R.id.textname);
-                    TextView txtGia = (TextView) findViewById(R.id.txtGia_acland);
-                    TextView txtXuatXu = (TextView) findViewById(R.id.txtXuatXu_acland);
-                    TextView txtCongDung = (TextView) findViewById(R.id.txtCongDung_acland);
-                    TextView txtThanhPhan = (TextView) findViewById(R.id.txtThanhPhan_acland);
+                    txtName = (TextView) findViewById(R.id.textname);
+                    txtGia = (TextView) findViewById(R.id.txtGia_acland);
+                    txtXuatXu = (TextView) findViewById(R.id.txtXuatXu_acland);
+                    txtCongDung = (TextView) findViewById(R.id.txtCongDung_acland);
+                    txtThanhPhan = (TextView) findViewById(R.id.txtThanhPhan_acland);
+                    //
                     txtName.setText(a.getTen());
                     txtXuatXu.setText(a.getXuatxu());
                     txtThanhPhan.setText("Thành phần: " + a.getThanhPhan());
@@ -110,7 +118,11 @@ public class MainActivity extends AppCompatActivity {
      * Xác định màn hình PORTRAIT, LANDSCAPE
      */
     void InfoScreen() {
-
+//        SanPham a = (SanPham) getIntent().getSerializableExtra("sp");
+        Log.d("TAG - a:", "InfoScreen: " + a.toString());
+        if (a.getMaID() == 0) {
+            a = new SanPham(R.drawable.sua_tuoi_dalat_milk_thanh_trung_khong_duong_447031, "Sữa Dalat Milk", "Ireland (Dairy Master )", 6000, 200, "100% sữa bò tươi,...", "Cung cấp chất dinh dưỡng có trong sữa bò tươi như: Chất đạm, chất béo, các vitamin và khoáng chất");
+        }
         z1 = 1;
         display =
                 ((WindowManager) getSystemService(Context.WINDOW_SERVICE))
@@ -124,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
             case Surface.ROTATION_90: {
 //                txtHuong.setText("Màn hình LAYOUT ngang: 90°");
-                manHinhNgang();
+                manHinhNgang(a);
                 break;
             }
             case Surface.ROTATION_180:
@@ -133,18 +145,48 @@ public class MainActivity extends AppCompatActivity {
 
             case Surface.ROTATION_270: {
 //                txtHuong.setText("Màn hình LAYOUT đứng: 270°");
-                manHinhNgang();
+                manHinhNgang(a);
                 break;
             }
         }
     }
 
-    private void manHinhNgang() {
-        Fragment_CT_SPham fragment_ct_sPham = new Fragment_CT_SPham();
+    public void manHinhNgang(SanPham a) {
+
+        Fragment_CT_SPham fragment_ct_sPham = new Fragment_CT_SPham(a);
 
         transaction.replace(R.id.frameContext, fragment_ct_sPham);
 
         transaction.commit();
         z1 = -1;
     }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 999 && resultCode == RESULT_OK) {
+            a = (SanPham) data.getSerializableExtra("sp");
+            Log.d("TAG - a( onActivityResult ):", z2 + a.toString());
+
+
+            if (z1 < 0) {
+                txtName = (TextView) findViewById(R.id.textname);
+                txtGia = (TextView) findViewById(R.id.txtGia_acland);
+                txtXuatXu = (TextView) findViewById(R.id.txtXuatXu_acland);
+                txtCongDung = (TextView) findViewById(R.id.txtCongDung_acland);
+                txtThanhPhan = (TextView) findViewById(R.id.txtThanhPhan_acland);
+                //
+                txtName.setText(a.getTen());
+                txtXuatXu.setText(a.getXuatxu());
+                txtThanhPhan.setText("Thành phần: " + a.getThanhPhan());
+                txtCongDung.setText("Công dụng: " + a.getCongDung());
+                txtGia.setText("" + a.getGia() + " VND/Hộp( " + a.getDungTich() + "ml )");
+            }
+        }
+    }
+
+
 }
