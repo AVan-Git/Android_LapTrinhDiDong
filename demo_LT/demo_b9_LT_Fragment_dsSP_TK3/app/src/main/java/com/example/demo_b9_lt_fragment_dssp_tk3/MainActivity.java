@@ -169,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == 999 && resultCode == RESULT_OK) {
             a = (SanPham) data.getSerializableExtra("sp");
+            
             Log.d("TAG - a( onActivityResult ):", z2 + a.toString());
 
 

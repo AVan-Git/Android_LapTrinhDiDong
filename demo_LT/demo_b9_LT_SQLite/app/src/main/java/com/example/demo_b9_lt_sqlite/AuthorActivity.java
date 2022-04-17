@@ -94,7 +94,8 @@ public class AuthorActivity extends AppCompatActivity {
                     listString.add(a.getEmail());
 
                 }
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(AuthorActivity.this, android.R.layout.simple_list_item_1, listString);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(AuthorActivity.this
+                        , android.R.layout.simple_list_item_1, listString);
 
                 gridView.setAdapter(adapter);
             }

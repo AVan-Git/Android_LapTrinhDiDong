@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:background="@drawable/xml_button_main"
-        android:text="Remove"
+        android:text="remove"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnAdd"
         app:layout_constraintStart_toEndOf="@+id/btnAdd" />
@@ -50,9 +50,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:textSize="20sp"
         android:background="@drawable/xml_button_main"
-        android:text="Cancel"
+        android:text="cancel"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnAdd"
         app:layout_constraintStart_toEndOf="@+id/btnRemove" />
 
