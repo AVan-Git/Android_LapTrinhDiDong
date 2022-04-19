@@ -1,5 +1,5 @@
 package com.example.demo_b9_lt_sqlite;
-
+// k hoan thành
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -46,6 +46,24 @@ public class AuthorActivity extends AppCompatActivity {
             }
         });
         //
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id = Integer.parseInt(edID.getText().toString());
+                String name = edName.getText().toString();
+                String address = edAddress.getText().toString();
+                String email = edEmail.getText().toString();
+
+                Author a = new Author(id, name, address, email);
+                if (dbHelper.updateAuthor(a) < 0){
+                    Toast.makeText(getApplicationContext(), "Cập nhật không thành công!", Toast.LENGTH_SHORT).show();
+                    Log.e("Lỗi updateAuthor()", "onClick: UPdate- Error");
+                }else {
+                    Toast.makeText(getApplicationContext(), "Bạn cập nhật thành công!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +74,7 @@ public class AuthorActivity extends AppCompatActivity {
 
                 Author a = new Author(id, name, address, email);
 //               int x = dbHelper.ínsertAuthor(a);
-                if (dbHelper.ínsertAuthor(a) < 0) {
+                if (dbHelper.ínsertAuthor(a) <= 0) {
                     Toast.makeText(getApplicationContext(), "Bạn lưu không thành công!", Toast.LENGTH_SHORT).show();
                     Log.e("Lỗi Insert Author", "onClick: Add- Error");
                 } else {

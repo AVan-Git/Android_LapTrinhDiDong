@@ -59,6 +59,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
             cursor.close();
             db.close();
+
         }
 
         return max + 1;

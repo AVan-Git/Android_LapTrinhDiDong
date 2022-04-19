@@ -91,10 +91,17 @@ public class DBHelper extends SQLiteOpenHelper {
     //
     public int updateAuthor(Author a) {
         SQLiteDatabase db = getWritableDatabase();
+//        db.execSQL("UPDATE product SET name=?, address = ?, email = ? where id = ?",
+//                new String[]{a.getName(), a.getAddress() , a.getEmail(), a.getId()+""});
+
         ContentValues contentValues = new ContentValues();
-//        contentValues
-        int res = 0;
+//        contentValues.put("id", a.getId() + ""); // id :tên cột trong table
+        contentValues.put("name", a.getName());
+        contentValues.put("address", a.getAddress());
+        contentValues.put("email", a.getEmail());
+        int res = (int) db.update("Authors", contentValues, "id = "+ a.getId(), null);
         return res;
+
     }
 
 
