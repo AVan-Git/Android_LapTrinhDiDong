@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1085702993819",
+    "firebase_url": "https://nguyenvanhoang-ktth-default-rtdb.firebaseio.com",
+    "project_id": "nguyenvanhoang-ktth",
+    "storage_bucket": "nguyenvanhoang-ktth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085702993819:android:8174dd42b67f677ec7933e",
+        "android_client_info": {
+          "package_name": "com.example.a1950891_nguyenvanhoang_ktth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085702993819-sjeeillhs89pnmcotbo8jj17ll9imkvv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.a1950891_nguyenvanhoang_ktth",
+            "certificate_hash": "cf492045fc118399a14bbeff8ea5375d3d713035"
+          }
+        },
+        {
+          "client_id": "1085702993819-qgftr1o9hivqvl982ro1q86eleeirldb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhyIHwPA0AkP_gMROiNqkQ8o7axmzyF9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085702993819-qgftr1o9hivqvl982ro1q86eleeirldb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

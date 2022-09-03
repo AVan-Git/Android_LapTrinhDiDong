@@ -1,7 +1,10 @@
 package com.example.demo_b9_lt_sqlite;
 // k hoan thành
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +49,49 @@ public class AuthorActivity extends AppCompatActivity {
             }
         });
         //
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int id = Integer.parseInt(edID.getText().toString());
+
+                //
+                int z1 = 0;
+                ArrayList<Author> authors = dbHelper.getAuthors();
+                for (Author author :
+                        authors) {
+                    if (id == author.getId()) {
+                        z1 = 1;
+                    }
+                }
+                if (z1 == 1) {
+                    AlertDialog.Builder myDialog = new AlertDialog.Builder(AuthorActivity.this);
+                    myDialog.setTitle("Thông báo!");
+                    myDialog.setMessage("Bạn có muốn xóa mã "+ id +" không? ");
+
+                    myDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dbHelper.delAuthor(id);
+                            Toast.makeText(getApplicationContext(), "Xóa thành công.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    myDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        }
+                    });
+                    AlertDialog dialog =myDialog.create();
+                    dialog.show();
+
+    //                    dbHelper.delAuthor(id);
+    //                    Toast.makeText(getApplicationContext(), "Xóa thành công.", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Không có mã " + id + " trong danh sách.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        //
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,13 +99,25 @@ public class AuthorActivity extends AppCompatActivity {
                 String name = edName.getText().toString();
                 String address = edAddress.getText().toString();
                 String email = edEmail.getText().toString();
-
-                Author a = new Author(id, name, address, email);
-                if (dbHelper.updateAuthor(a) < 0){
-                    Toast.makeText(getApplicationContext(), "Cập nhật không thành công!", Toast.LENGTH_SHORT).show();
-                    Log.e("Lỗi updateAuthor()", "onClick: UPdate- Error");
-                }else {
-                    Toast.makeText(getApplicationContext(), "Bạn cập nhật thành công!", Toast.LENGTH_SHORT).show();
+                //
+                int z1 = 0;
+                ArrayList<Author> authors = dbHelper.getAuthors();
+                for (Author author :
+                        authors) {
+                    if (id == author.getId()) {
+                        z1 = 1;
+                    }
+                }
+                if (z1 == 1) {
+                    Author a = new Author(id, name, address, email);
+                    if (dbHelper.updateAuthor(a) < 0) {
+                        Toast.makeText(getApplicationContext(), "Cập nhật không thành công!", Toast.LENGTH_SHORT).show();
+                        Log.e("Lỗi updateAuthor()", "onClick: UPdate- Error");
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Bạn cập nhật thành công!", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Không có mã " + id + " trong danh sách.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -71,15 +129,26 @@ public class AuthorActivity extends AppCompatActivity {
                 String name = edName.getText().toString();
                 String address = edAddress.getText().toString();
                 String email = edEmail.getText().toString();
+                //
+                ArrayList<Author> authors = dbHelper.getAuthors();
+                for (Author author :
+                        authors) {
+                    if (id == author.getId()) {
+                        Toast.makeText(getApplicationContext(), "Mã " + id + " đã có trong danh sách.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
 
                 Author a = new Author(id, name, address, email);
-//               int x = dbHelper.ínsertAuthor(a);
+
                 if (dbHelper.ínsertAuthor(a) <= 0) {
                     Toast.makeText(getApplicationContext(), "Bạn lưu không thành công!", Toast.LENGTH_SHORT).show();
                     Log.e("Lỗi Insert Author", "onClick: Add- Error");
                 } else {
                     Toast.makeText(getApplicationContext(), "Bạn lưu thành công!", Toast.LENGTH_SHORT).show();
                 }
+
+
             }
         });
         //
@@ -87,25 +156,33 @@ public class AuthorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ArrayList<Author> authors = new ArrayList<>();
+                ArrayList<Author> authors = dbHelper.getAuthors();
+                ArrayList<Author> list = new ArrayList<>();
                 ArrayList<String> listString = new ArrayList<>();
 
-                if (!edID.getText().toString().equals(""))
-                {
-                    Log.d("edID:",edID.getText().toString() );
-                    Author z1 = dbHelper.getAuthor(Integer.parseInt(edID.getText().toString()));
-                    if (z1 == null)
-                    {
-                        Toast.makeText(AuthorActivity.this, "Không tìm thấy!", Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    authors.add(z1);
+                if (!edID.getText().toString().equals("")) {
+//                    Author z1 = dbHelper.getAuthor(Integer.parseInt(edID.getText().toString()));
+//                    if (z1 == null) {
+//                        Toast.makeText(AuthorActivity.this, "Không tìm thấy!", Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
+//                    authors.add(z1);
 
-                }else{
-                    authors =  dbHelper.getAuthors();
+                    int id = Integer.parseInt(edID.getText().toString());
+
+                    for (Author a :
+                            authors) {
+                        if (a.getId() == id) {
+                            list.add(a);
+                        }
+
+                    }
+
+                } else {
+                    list = dbHelper.getAuthors();
                 }
                 for (Author a :
-                        authors) {
+                        list) {
                     listString.add(a.getId() + "");
                     listString.add(a.getName());
                     listString.add(a.getAddress());

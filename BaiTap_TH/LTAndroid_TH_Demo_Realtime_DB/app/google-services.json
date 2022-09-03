@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "34295149699",
+    "firebase_url": "https://ltandroid-th-demo-realtime-db-default-rtdb.firebaseio.com",
+    "project_id": "ltandroid-th-demo-realtime-db",
+    "storage_bucket": "ltandroid-th-demo-realtime-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34295149699:android:1e0a90a391e2ce8bc717b6",
+        "android_client_info": {
+          "package_name": "com.example.ltandroid_th_demo_realtime_db"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34295149699-9vhul3jv9t1ald1gp9eq4qdugu8sg6fu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ltandroid_th_demo_realtime_db",
+            "certificate_hash": "cf492045fc118399a14bbeff8ea5375d3d713035"
+          }
+        },
+        {
+          "client_id": "34295149699-k9arqfl959r2dadh5k53uhutbj3josnm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxfHuEUW775yPogGTqkB_qwA0U17_95oY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34295149699-k9arqfl959r2dadh5k53uhutbj3josnm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

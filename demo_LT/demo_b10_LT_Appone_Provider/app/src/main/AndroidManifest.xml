@@ -24,8 +24,8 @@
             android:authorities="com.example.demo_b10_lt_appone_provider"
             android:enabled="true"
             android:exported="true"
-            android:readPermission="com.example.demo_b10_lt_appone_provider.READ_DATABASE"
             android:writePermission="com.example.demo_b10_lt_appone_provider.WRITE_DATABASE"
+            android:readPermission="com.example.demo_b10_lt_appone_provider.READ_DATABASE"
             />
 
         <activity

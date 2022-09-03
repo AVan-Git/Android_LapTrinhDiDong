@@ -45,7 +45,9 @@ public class MyContentProvider extends ContentProvider {
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
         // Implement this to handle requests to delete one or more rows.
-        throw new UnsupportedOperationException("Not yet implemented");
+        int res =0;
+        res = db.delete(PRODUCT_TABLE, selection, null);
+        return res;
     }
 
     @Override
@@ -101,8 +103,11 @@ public class MyContentProvider extends ContentProvider {
                 queryBuilder.appendWhere("id=" + uri.getPathSegments().get(0));
             }
         }
-        Cursor cursor = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+        Cursor cursor = queryBuilder.query(db, projection, selection,
+                selectionArgs, null, null, sortOrder);
+
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
+
         return cursor;
     }
 
@@ -111,6 +116,11 @@ public class MyContentProvider extends ContentProvider {
                       String[] selectionArgs) {
         // TODO: Implement this to handle requests to update one or more rows.
 
-        throw new UnsupportedOperationException("Not yet implemented");
+        int a = db.update(PRODUCT_TABLE, values,selection, null );
+        if (a>0)
+        {
+            return  a;
+        }
+        return 0;
     }
 }

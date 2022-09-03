@@ -2,6 +2,7 @@ package com.example.ltandroid_th_b2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,9 +26,12 @@ public class MainActivity extends AppCompatActivity {
         btnClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = "";
-                text = txtUser.getText().toString() + "-" + txtPass.getText().toString();
-                Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
+//                String text = "";
+//                text = txtUser.getText().toString() + "-" + txtPass.getText().toString();
+//                Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
+                startActivity(new Intent(MainActivity.this, Activity_TH_2b.class));
+
+
             }
         });
 

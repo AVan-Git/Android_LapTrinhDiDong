@@ -2,6 +2,7 @@ package com.example.ltandroid_th_b4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MainActivity.this, "Thêm sản phẩm.", Toast.LENGTH_SHORT).show();
+
+                startActivity(new Intent(MainActivity.this, ActivitySecondGridview.class));
             }
         });
     }

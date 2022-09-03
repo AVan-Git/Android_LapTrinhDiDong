@@ -107,7 +107,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnGui"
         android:layout_width="310dp"
         android:layout_height="61dp"
         android:layout_marginTop="44dp"

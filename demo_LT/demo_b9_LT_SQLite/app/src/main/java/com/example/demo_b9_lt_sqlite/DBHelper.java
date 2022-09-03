@@ -103,6 +103,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return res;
 
     }
+    //
+    public void delAuthor(int maXoa)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+
+        db.delete("Authors", " id = "+ maXoa, null);
+    }
 
 
 }

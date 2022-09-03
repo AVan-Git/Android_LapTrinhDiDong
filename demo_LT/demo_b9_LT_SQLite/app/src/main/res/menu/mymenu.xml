@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mnGetAuThors"
+        android:title="Danh sách tác giả" />
+    <item android:title="Danh sách sách">
+        <menu>
+            <item
+                android:id="@+id/mnXemDsSach"
+                android:title="DS sách" />
+            <item
+                android:id="@+id/mnAddSach"
+                android:title="Thêm sách" />
+            <item
+                android:id="@+id/mnSuaSach"
+                android:title="Sửa sách" />
+        </menu>
+
+    </item>
+
+
+</menu>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/mn1_a"
+        android:title="Bài lab1-a" />
+    <item
+        android:id="@+id/mn1_b"
+        android:title="Bài lab1-b" />
+    <item
+        android:id="@+id/mn1_c"
+        android:title="Bài lab1-c" />
+    <item
+        android:id="@+id/mn1_d"
+        android:title="Bài lab1-d" />
+    <item
+        android:id="@+id/mn1_e"
+        android:title="Bài lab1-e" />
+
+
+</menu>

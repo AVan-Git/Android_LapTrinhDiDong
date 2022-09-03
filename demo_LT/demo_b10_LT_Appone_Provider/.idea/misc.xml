@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b10_LT_Appone_Provider/app/src/main/res/drawable-v24/xml_button_main.xml" value="0.264" />
         <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b10_LT_Appone_Provider/app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b10_LT_Appone_Provider/app/src/main/res/layout/activity_product.xml" value="0.1" />
+        <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b10_LT_Appone_Provider/app/src/main/res/layout/activity_product.xml" value="0.33" />
         <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b10_LT_Appone_Provider/app/src/main/res/menu/menu.xml" value="0.1" />
         <entry key="..\:/Android_LapTrinhDiDong/demo_LT/demo_b10_LT_Appone_Provider/app/src/main/res/menu/menubar.xml" value="0.1" />
       </map>
